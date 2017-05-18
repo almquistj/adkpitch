@@ -1,4 +1,4 @@
-# Android Development Environment using Docker
+Android Development Environment using Docker
 
 ---
 
@@ -44,6 +44,8 @@ There can be so called 'dangling images' - use `clean.sh`
 
 List the running containers
 
+---
+
 ## Why using Docker for development environment
 
 - one defined environment
@@ -66,6 +68,8 @@ List the running containers
 - `docker build`
 - `build.sh` - wrapper with useful options
 
+---
+
 ## Run a Docker image
 
 - `docker run [options] <image-name>`
@@ -78,7 +82,7 @@ List the running containers
 
 - `adk bash` - to start an interactive shell and e.g. build AOSP
 - `adk studio` - start a Android Studio
-- `adk code` - or Visual Studio Code
+- `adk code` - or Visual Studio Coden
 
 ## User ID
 
@@ -86,7 +90,7 @@ The `run.sh` script etc will configure a user in the container with the same
 user id and group id as your user on host.
 --> any created file in container is owned by user
 
-
+---
 
 ## Questions?
 
