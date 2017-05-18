@@ -1,6 +1,6 @@
-Android Development Environment
+### Android Development Environment
 
-using Docker
+### using Docker
 
 ![hello](icon.png)
 
@@ -13,7 +13,7 @@ using Docker
 - build once, run anywhere |
 - lightweight - a process, not a virtual machine |
 - uses Linux kernel features like cgroups and namespaces to isolate |
-- previously based on LXC, but now uses libcontainer
+- previously based on LXC, but now uses libcontainer |
 
 ---
 
@@ -21,9 +21,9 @@ using Docker
 
 ---
 
-## Example of Docker
+### Example of Docker
 
-`docker run -i -t ubuntu bash`
+**`docker run -i -t ubuntu bash`**
 
 - downloads an ubuntu image (if needed)
 - launches an interactive container running bash
@@ -31,19 +31,19 @@ using Docker
 
 +++
 
-`docker images`
+**`docker images`**
 
 List the images on your system
 
 +++
 
-`docker ps`
+**`docker ps`**
 
 List the running containers
 
 +++
 
-`docker rmi`
+**`docker rmi`**
 
 To delete an image.
 
@@ -51,7 +51,7 @@ There can be so called 'dangling images' - use `clean.sh`
 
 ---
 
-Why using Docker for development environment
+### Why use Docker for development environment
 
 - one defined environment
 - everyone use the same environment
@@ -60,34 +60,44 @@ Why using Docker for development environment
 
 ---
 
-## What is an image and container
+### Build a Docker image
 
-- container is an instance of an image
-- there can be many instances of the same image
-
----
-
-## Build a Docker image
-
-- Dockerfile
+- Built based on one of the supported images on Docker Hub
+- *`Dockerfile`* is the recipe/script
 - `docker build`
-- `build.sh` - wrapper with useful options
+- `android_docker/build.sh` - wrapper with useful options
 
 ---
 
-## Run a Docker image
+### Run a Docker image
 
 - `docker run [options] <image-name>`
-- `run.sh` - wrapper with lots of options, like mounting points, X11 and user id
-- `adk` - bash function to run container from any directory
+- `android_docker/run.sh` - wrapper with lots of options, like mounting points, X11 and user id
+- `adk` - bash function to run container from any directory (`source bash_aliases_adk`)
 
 +++
 
-## Examples
+### Examples
 
 - `adk bash` - to start an interactive shell and e.g. build AOSP
 - `adk studio` - start a Android Studio
 - `adk code` - or Visual Studio Coden
+
+---
+
+### Caveats
+
+*NOTE:* The --rm flag is used. Docker will discard any changes to the
+filesystem inside the container. Always get a fresh start.
+
+---
+
+### What files should be shared between container and host?
+
+- `/home/adk` - is an anonymous 'Docker volume' to make changes persistent
+- `/home/<user>` - by default, the user's HOME directory
+
+---
 
 ## User ID
 
