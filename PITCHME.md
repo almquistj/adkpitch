@@ -6,16 +6,11 @@ using Docker
 
 ---
 
-## What is Docker
-
-@startuml
-Alice -> Bob: Hej
-olle -> kalle: hopp
-@enduml
-
+### What is Docker
 
 - software container platform
 - automates the task of setting up and configuring development environment |
+- build once, run anywhere |
 - lightweight - a process, not a virtual machine |
 - uses Linux kernel features like cgroups and namespaces to isolate |
 - previously based on LXC, but now uses libcontainer
@@ -26,7 +21,7 @@ olle -> kalle: hopp
 
 ---
 
-## Simple Docker example
+## Example of Docker
 
 `docker run -i -t ubuntu bash`
 
@@ -42,24 +37,24 @@ List the images on your system
 
 +++
 
+`docker ps`
+
+List the running containers
+
++++
+
 `docker rmi`
 
 To delete an image.
 
 There can be so called 'dangling images' - use `clean.sh`
 
-+++
-
-`docker ps`
-
-List the running containers
-
 ---
 
-## Why using Docker for development environment
+Why using Docker for development environment
 
 - one defined environment
-- all can use the same environment
+- everyone use the same environment
 - perhaps useful in ~6 months when new versions of various tools/packages exist
 - environment can be automatically verified to e.g. build AOSP
 
