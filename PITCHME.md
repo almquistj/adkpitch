@@ -2,13 +2,17 @@ Android Development Environment
 
 using Docker
 
-![hello](assets/icon.png)
+![hello](icon.png)
 
 ---
 
 ## What is Docker
 
-+++
+@startuml
+Alice -> Bob: Hej
+olle -> kalle: hopp
+@enduml
+
 
 - software container platform
 - automates the task of setting up and configuring development environment |
@@ -16,7 +20,9 @@ using Docker
 - uses Linux kernel features like cgroups and namespaces to isolate |
 - previously based on LXC, but now uses libcontainer
 
-http://blog.docker.com/wp-content/uploads/2014/03/docker-execdriver-diagram.png
+---
+
+![whale](http://blog.docker.com/wp-content/uploads/2014/03/docker-execdriver-diagram.png)
 
 ---
 
