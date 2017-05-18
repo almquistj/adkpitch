@@ -8,16 +8,18 @@
 
 ### What is Docker
 
+![whale](http://blog.docker.com/wp-content/uploads/2014/03/docker-execdriver-diagram.png)
+
++++
+
 - software container platform
+- can be seen as a lightweight Virtual Machine |
 - automates the task of setting up and configuring development environment |
-- build once, run anywhere |
-- lightweight - a process, not a virtual machine |
+- build once, run anywhere, regardless of host distro and kernel version |
+- lightweight - an isolated process, not a virtual machine |
 - uses Linux kernel features like cgroups and namespaces to isolate |
 - previously based on LXC, but now uses libcontainer |
-
----
-
-![whale](http://blog.docker.com/wp-content/uploads/2014/03/docker-execdriver-diagram.png)
+- container is an instance of an image running as isolated process |
 
 ---
 
@@ -29,23 +31,19 @@
 - launches an interactive container running bash
 - run `ps aux` - only bash is there
 
-+++
+---
 
-**`docker images`**
+### Docker commands
 
-List the images on your system
+- **`docker build`**    # Build an image from a Dockerfile
+- **`docker images`**   # List the images on your system
+- **`docker run`**      # Run an image
+- **`docker ps`**       # List the running containers
+- **`docker rmi`**      # Delete an image
 
-+++
+---
 
-**`docker ps`**
-
-List the running containers
-
-+++
-
-**`docker rmi`**
-
-To delete an image.
+### Useful to have wrappers
 
 There can be so called 'dangling images' - use `clean.sh`
 
@@ -54,9 +52,9 @@ There can be so called 'dangling images' - use `clean.sh`
 ### Why use Docker for development environment
 
 - one defined environment
-- everyone use the same environment
-- perhaps useful in ~6 months when new versions of various tools/packages exist
-- environment can be automatically verified to e.g. build AOSP
+- everyone use the same environment |
+- useful in long run when new versions of tools/packages appear |
+- environment can be automatically verified to e.g. build AOSP |
 
 ---
 
@@ -88,14 +86,16 @@ There can be so called 'dangling images' - use `clean.sh`
 ### Caveats
 
 *NOTE:* The --rm flag is used. Docker will discard any changes to the
-filesystem inside the container. Always get a fresh start.
+filesystem inside the container. Always get a clean start.
 
 ---
 
 ### What files should be shared between container and host?
 
-- `/home/adk` - is an anonymous 'Docker volume' to make changes persistent
+- `/home/adk` - is an anonymous 'Docker volume'
 - `/home/<user>` - by default, the user's HOME directory
+
+allows for persistent changes like IDE settings and build artifacts
 
 ---
 
