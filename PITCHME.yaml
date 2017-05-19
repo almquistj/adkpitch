@@ -1,3 +1,5 @@
+theme : moon
+
 logo : assets/icon.png
 
 theme-override : assets/css/PITCHME.css
