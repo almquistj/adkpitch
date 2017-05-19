@@ -4,9 +4,9 @@
 
 ---
 
-### What is Docker
+### What is Docker?
 
-![whale](http://blog.docker.com/wp-content/uploads/2014/03/docker-execdriver-diagram.png)
+![what_is_docker](https://denibertovic.com/talks/supercharge-development-env-using-docker/img/what_is_docker.png)
 
 +++
 
@@ -21,7 +21,21 @@
 
 ---
 
-![basics](assets/basics_of_docker.jpg)
+### What is a container?
+
+![container](https://denibertovic.com/talks/supercharge-development-env-using-docker/img/container.jpg)
+
+---
+
+### Container vs Virtual Machine
+
+![container_vs_vm](assets/containers_vs_vm.jpg)
+
+---
+
+### Docker workflow
+
+![workflow](https://denibertovic.com/talks/supercharge-development-env-using-docker/img/docker-flow.png)
 
 ---
 
@@ -45,11 +59,12 @@
 
 ---
 
-### Why use Docker for development environment
+### Why use Docker for development environment?
 
 - one defined environment
 - everyone use the same environment |
 - useful in long run when new versions of tools/packages appear |
+- fast with minimal overhead |
 - environment can be automatically verified to e.g. build AOSP |
 - same environment can be used by e.g. Jenkins |
 
