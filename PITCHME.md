@@ -129,7 +129,7 @@ RUN curl -L https://dl.google.com/dl/android/studio/ide-zips/2.3.2.0/android-stu
 
 - `adk bash` - to start an interactive shell and e.g. build AOSP
 - `adk studio` - start a Android Studio
-- `adk code` - or Visual Studio Coden
+- `adk code` - start Visual Studio Code
 
 ---
 
