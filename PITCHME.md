@@ -157,5 +157,14 @@ user id and group id as your user on host.
 
 ---
 
+### Cool, where do I start
+
+Gerrit: http://10.236.95.21:8080/
+Project: android_docker
+
+android_docker/README.md
+
+---
+
 ### Questions?
 
