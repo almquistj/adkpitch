@@ -1,0 +1,8 @@
+logo : assets/icon.png
+
+theme-override : assets/css/PITCHME.css
+
+.reveal section img {
+  border: 0;
+  box-shadow: none;
+}
