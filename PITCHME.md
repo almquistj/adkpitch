@@ -2,8 +2,6 @@
 
 ### using Docker
 
-![hello](icon.png)
-
 ---
 
 ### What is Docker
@@ -23,13 +21,17 @@
 
 ---
 
-### Example of Docker
+![basics](assets/basics_of_docker.jpg)
+
+---
+
+### Basic example of Docker
 
 **`docker run -i -t ubuntu bash`**
 
 - downloads an ubuntu image (if needed)
 - launches an interactive container running bash
-- run `ps aux` - only bash is there
+- run `ps aux` in container - only bash is there
 
 ---
 
@@ -43,27 +45,49 @@
 
 ---
 
-### Useful to have wrappers
-
-There can be so called 'dangling images' - use `clean.sh`
-
----
-
 ### Why use Docker for development environment
 
 - one defined environment
 - everyone use the same environment |
 - useful in long run when new versions of tools/packages appear |
 - environment can be automatically verified to e.g. build AOSP |
+- same environment can be used by e.g. Jenkins |
+
+---
+
+### Prerequisite - install docker engine
+
+- Package `docker-engine`, add key and repo
+- Scripts requires specific version 1.13.1
+- `android_docker/install-docker.sh`
 
 ---
 
 ### Build a Docker image
 
-- Built based on one of the supported images on Docker Hub
 - *`Dockerfile`* is the recipe/script
-- `docker build`
 - `android_docker/build.sh` - wrapper with useful options
+
+---
+
+### Dockerfile
+
+```bash
+FROM ubuntu:16.04
+RUN apt-get update
+
+RUN apt-get install -y openjdk-8-jdk
+
+#...
+
+# Download specific Android Studio bundle (all packages).
+RUN curl -L https://dl.google.com/dl/android/studio/ide-zips/2.3.2.0/android-studio-ide-162.3934792-linux.zip --output /tmp/studio.zip \
+    && unzip -d /opt/android /tmp/studio.zip \
+    && rm /tmp/studio.zip
+
+#...
+
+```
 
 ---
 
@@ -86,23 +110,24 @@ There can be so called 'dangling images' - use `clean.sh`
 ### Caveats
 
 *NOTE:* The --rm flag is used. Docker will discard any changes to the
-filesystem inside the container. Always get a clean start.
+filesystem(*) inside the container. Always get a clean start.
 
 ---
 
 ### What files should be shared between container and host?
 
-- `/home/adk` - is an anonymous 'Docker volume'
+- `/home/adk` - is a mounted anonymous 'Docker volume'
 - `/home/<user>` - by default, the user's HOME directory
 
 allows for persistent changes like IDE settings and build artifacts
 
 ---
 
-## User ID
+## User and group ID
 
 The `run.sh` script etc will configure a user in the container with the same
 user id and group id as your user on host.
+
 --> any created file in container is owned by user
 
 ---
