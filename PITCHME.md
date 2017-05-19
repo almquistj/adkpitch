@@ -8,15 +8,15 @@
 
 ![what_is_docker](https://denibertovic.com/talks/supercharge-development-env-using-docker/img/what_is_docker.png)
 
-+++
+---
+
+### What is Docker?
 
 - software container platform
 - can be seen as a lightweight Virtual Machine |
-- automates the task of setting up and configuring development environment |
 - build once, run anywhere, regardless of host distro and kernel version |
-- lightweight - an isolated process, not a virtual machine |
-- uses Linux kernel features like cgroups and namespaces to isolate |
-- previously based on LXC, but now uses libcontainer |
+- based on Linux kernel features like cgroups and namespaces to isolate |
+- previously used LXC, now libcontainer |
 - container is an instance of an image running as isolated process |
 
 ---
@@ -70,6 +70,16 @@
 
 ---
 
+### So, what is included in this image?
+
+- prerequisites for building AOSP, incl `repo`
+- Android Studio
+- SDK, build tools, NDK, emulator image
+- Visual Studio Code
+- lldb
+
+---
+
 ### Prerequisite - install docker engine
 
 - Package `docker-engine`, add key and repo
@@ -112,7 +122,7 @@ RUN curl -L https://dl.google.com/dl/android/studio/ide-zips/2.3.2.0/android-stu
 - `android_docker/run.sh` - wrapper with lots of options, like mounting points, X11 and user id
 - `adk` - bash function to run container from any directory (`source bash_aliases_adk`)
 
-+++
+---
 
 ### Examples
 
@@ -138,7 +148,7 @@ allows for persistent changes like IDE settings and build artifacts
 
 ---
 
-## User and group ID
+### User and group ID
 
 The `run.sh` script etc will configure a user in the container with the same
 user id and group id as your user on host.
@@ -147,5 +157,5 @@ user id and group id as your user on host.
 
 ---
 
-## Questions?
+### Questions?
 
