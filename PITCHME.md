@@ -67,6 +67,7 @@
 - fast with minimal overhead |
 - environment can be automatically verified to e.g. build AOSP |
 - same environment can be used by e.g. Jenkins |
+- easy to switch back to older versions without mess |
 
 ---
 
