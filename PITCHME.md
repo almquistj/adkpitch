@@ -6,13 +6,13 @@
 
 ### What is Docker?
 
-![what_is_docker](https://denibertovic.com/talks/supercharge-development-env-using-docker/img/what_is_docker.png)
-
+![what_is_docker](https://www.docker.com/sites/default/files/group_5622_0.png)
 ---
 
 ### What is Docker?
 
 - software container platform
+- open source project |
 - can be seen as a lightweight Virtual Machine |
 - build once, run anywhere, regardless of host distro and kernel version |
 - based on Linux kernel features like cgroups and namespaces to isolate |
@@ -107,7 +107,8 @@ RUN apt-get install -y openjdk-8-jdk
 #...
 
 # Download specific Android Studio bundle (all packages).
-RUN curl -L https://dl.google.com/dl/android/studio/ide-zips/2.3.2.0/android-studio-ide-162.3934792-linux.zip --output /tmp/studio.zip \
+RUN curl -L https://dl.google.com/dl/android/studio/ide-zips/2.3.2.0/android-studio-ide-162.3934792-linux.zip \
+    --output /tmp/studio.zip \
     && unzip -d /opt/android /tmp/studio.zip \
     && rm /tmp/studio.zip
 
@@ -158,9 +159,15 @@ user id and group id as your user on host.
 
 ---
 
+### Entrypoint
+
+- Container typically runs one command
+- we use
+
 ### Cool, where do I start
 
 Gerrit: http://10.236.95.21:8080/
+
 Project: android_docker
 
 android_docker/README.md
