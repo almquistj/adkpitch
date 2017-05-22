@@ -44,10 +44,10 @@
 
 ### Docker commands
 
-- **`docker build`**    # Build an image from a Dockerfile
 - **`docker images`**   # List the images on your system
 - **`docker run`**      # Run an image
 - **`docker ps`**       # List the running containers
+- **`docker build`**    # Build an image from a Dockerfile
 - **`docker rmi`**      # Delete an image
 
 ---
@@ -58,9 +58,10 @@
 - everyone use the same environment |
 - useful in long run when new versions of tools/packages appear |
 - fast with minimal overhead |
-- environment can be automatically verified to e.g. build AOSP |
+- installation of environment is scripted or pre-built |
 - same environment can be used by e.g. Jenkins |
-- easy to switch back to older versions without mess |
+- environment can be automatically verified to e.g. build AOSP |
+- run multiple versions |
 
 ---
 
@@ -136,10 +137,12 @@ filesystem(*) inside the container. Always get a clean start.
 
 ### What files should be shared between container and host?
 
-- `/home/adk` - is a mounted anonymous 'Docker volume'
-- `/home/<user>` - by default, the user's HOME directory
+- `/home/adk` - is a mounted anonymous 'Docker volume' mounted as HOME in container
+- `/home/<user>` - by default, the user's HOME directory on host
 
 allows for persistent changes like IDE settings and build artifacts
+
+`adk -c studio` - will clean the docker volume
 
 ---
 
