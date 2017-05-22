@@ -17,13 +17,6 @@
 - build once, run anywhere, regardless of host distro and kernel version |
 - based on Linux kernel features like cgroups and namespaces to isolate |
 - previously used LXC, now libcontainer |
-- container is an instance of an image running as isolated process |
-
----
-
-### What is a container?
-
-![container](https://denibertovic.com/talks/supercharge-development-env-using-docker/img/container.jpg)
 
 ---
 
