@@ -124,7 +124,7 @@ RUN curl -L https://dl.google.com/dl/android/studio/ide-zips/2.3.2.0/android-stu
 
 - `adk bash` - to start an interactive shell and e.g. build AOSP
 - `adk studio` - start Android Studio
-- `adk code` - start Visual Studio Code
+- `adk code -w` - start Visual Studio Code (wait mode)
 
 ---
 
@@ -154,11 +154,6 @@ user id and group id as your user on host.
 --> any created file in container is owned by user
 
 ---
-
-### Entrypoint
-
-- Container typically runs one command
-- we use
 
 ### Cool, where do I start
 
